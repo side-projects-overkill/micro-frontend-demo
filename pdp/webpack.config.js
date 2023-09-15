@@ -4,7 +4,7 @@ const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPl
 const deps = require('./package.json').dependencies;
 module.exports = (_, argv) => ({
   output: {
-    publicPath: 'http://localhost:3001/',
+    publicPath: 'auto',
   },
 
   resolve: {
@@ -44,9 +44,8 @@ module.exports = (_, argv) => ({
       name: 'pdp',
       filename: 'remoteEntry.js',
       remotes: {
-        home: 'home@http://localhost:3000/remoteEntry.js',
-        pdp: 'pdp@http://localhost:3001/remoteEntry.js',
-        locations: 'locations@http://localhost:3003/remoteEntry.js',
+        home: 'home@https://side-projects-overkill.github.io/mf-home/remoteEntry.js',
+        locations: 'locations@https://side-projects-overkill.github.io/mf-locations-solid/remoteEntry.js',
       },
       exposes: {},
       shared: {
